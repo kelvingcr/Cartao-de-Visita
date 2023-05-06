@@ -11,7 +11,7 @@
 
 <p align="center">  
 
-⭐ Estou participando de um  treinamento do Android intitulado <b>"Android Basics in Kotlin".</b> O recurso é um curso online que aborda os conceitos básicos do desenvolvimento de aplicativos Android usando a linguagem Kotlin.
+⭐ Estou participando de um  treinamento do Android intitulado <b>"NOÇÕES BÁSICAS DO ANDROID COM O COMPOSE".</b> O recurso é um curso online que aborda os conceitos básicos do desenvolvimento de aplicativos Android usando a linguagem Kotlin.
 
   
   </br>

@@ -6,17 +6,17 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material3.Divider
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    naoseiaocerto()
+                    CartaoDeVisitas()
                 }
             }
         }
@@ -48,14 +48,21 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun naoseiaocerto() {
+fun CartaoDeVisitas(modifier: Modifier = Modifier) {
     val backgroundColor = colorResource(id = R.color.principal)
     val image = painterResource(id = R.drawable.android_logo)
 
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .background(backgroundColor)
+            .padding(8.dp),
+    ) {
+
         Column(
             modifier = Modifier
-                .fillMaxSize()
-                .background(backgroundColor),
+                .fillMaxWidth()
+                .weight(1F), //O segredo pra centralizar do jeito que voce quer esta nesta linha, leia a documentacoa do weight (funciona em Column e Rows) qualquer coisa me pergunta!
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
@@ -82,8 +89,7 @@ fun naoseiaocerto() {
 
         Column(
             modifier = Modifier
-                .fillMaxSize()
-                .padding(8.dp),
+                .fillMaxWidth(),
             horizontalAlignment = Alignment.Start,
             verticalArrangement = Arrangement.Bottom
         ) {
@@ -156,11 +162,17 @@ fun naoseiaocerto() {
     }
 
 
+}
 
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    CartãoDeVisitaTheme {
-        naoseiaocerto()
+    //Veja a documentacao do Scaffold!
+    Scaffold { padding ->
+        CartãoDeVisitaTheme {
+            CartaoDeVisitas(modifier = Modifier.padding(padding))
+        }
     }
 }
